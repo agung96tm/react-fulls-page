@@ -1,3 +1,5 @@
-import MyCounter from "./components/App";
+import FullPage from "./components/FullPage";
+import Controls from './components/Controls';
 
-export { MyCounter }
+
+export { FullPage, Controls }
