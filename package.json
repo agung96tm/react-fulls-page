@@ -1,0 +1,27 @@
+{
+  "name": "react-fulls-page",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "build": "tsc"
+  },
+  "keywords": [],
+  "author": "Agung Yuliyanto <agung.96tm@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/agung96tm/react-fulls-page/issues"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^13.0.1",
+    "@types/react": "^18.2.37",
+    "eslint": "^4.10.0",
+    "eslint-config-last": "^0.0.3",
+    "eslint-config-prettier": "^2.6.0",
+    "eslint-plugin-prettier": "^2.3.1",
+    "eslint-plugin-react": "^7.4.0",
+    "prettier": "^1.7.4",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "typescript": "^5.2.2"
+  }
+}
