@@ -1,5 +1,5 @@
 import FullPage from "./components/FullPage";
-import Controls from './components/Controls';
+import Slide from './components/Slide';
 
 
-export { FullPage, Controls }
+export { FullPage, Slide }
