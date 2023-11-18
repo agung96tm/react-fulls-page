@@ -1,2 +1,2 @@
-import FullPage from './FullPage';
-export default FullPage;
+import FullPage from './FullPage'
+export default FullPage

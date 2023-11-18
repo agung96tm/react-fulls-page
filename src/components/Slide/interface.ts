@@ -1,6 +1,6 @@
-import React from "react";
+import React from 'react'
 
 export interface ISlideProps {
-    style?: React.CSSProperties;
-    children: React.ReactNode;
+  style?: React.CSSProperties
+  children: React.ReactNode
 }

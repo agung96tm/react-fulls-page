@@ -1,4 +1,4 @@
-import FullPage from './components/FullPage';
-import Slide from './components/Slide';
+import FullPage from './components/FullPage'
+import Slide from './components/Slide'
 
-export { FullPage, Slide };
+export { FullPage, Slide }

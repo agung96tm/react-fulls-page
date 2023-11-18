@@ -1,2 +1,2 @@
-import Slide from './Slide';
-export default Slide;
+import Slide from './Slide'
+export default Slide
