@@ -1,14 +1,5 @@
 import React from 'react';
-
-interface ControlsProps {
-    className?: string;
-    getCurrentSlideIndex: () => number;
-    onNext: () => void;
-    onPrev: () => void;
-    scrollToSlide: (slide: number) => void;
-    slidesCount: number;
-    style?: React.CSSProperties;
-}
+import {ControlsProps} from "./interface";
 
 const Controls: React.FC<ControlsProps> = ({
     className = 'full-page-controls',
@@ -19,22 +10,6 @@ const Controls: React.FC<ControlsProps> = ({
     slidesCount,
     style = {},
 }: ControlsProps) => {
-    const renderSlidesNumbers = (currentSlideIndex: number) => {
-        const slidesNumbers = [];
-
-        for (let i = 0; i < slidesCount; i++) {
-            const buttonProps = {
-                disabled: currentSlideIndex === i,
-                key: i,
-                onClick: () => scrollToSlide(i),
-            };
-
-            slidesNumbers.push(<button type="button" {...buttonProps}>{i + 1}</button>);
-        }
-
-        return slidesNumbers;
-    };
-
     const currentSlideIndex = getCurrentSlideIndex();
 
     return (
@@ -46,7 +21,18 @@ const Controls: React.FC<ControlsProps> = ({
             >
                 ←
             </button>
-            {renderSlidesNumbers(currentSlideIndex)}
+
+            {new Array(slidesCount).fill(null).map((_, index) => (
+                <button
+                    type="button"
+                    key={index}
+                    disabled={currentSlideIndex === index}
+                    onClick={() => scrollToSlide(index)}
+                >
+                    {index + 1}
+                </button>
+            ))}
+
             <button
                 type="button"
                 disabled={currentSlideIndex === slidesCount - 1}

@@ -1,36 +1,26 @@
-import { useEffect, useRef } from 'react';
 import easeInOutCubic from './ease-in-out-cubic';
 
 const animatedScrollTo = (scrollTo: any, duration: any, callback: any) => {
-    const scrollFrom = useRef(window.scrollY || window.pageYOffset || 0);
-    const currentTime = useRef(0);
+    const scrollFrom = window.scrollY || window.pageYOffset || 0;
+    const scrollDiff = scrollTo - scrollFrom;
+    let currentTime = 0;
     const increment = 20;
 
-    useEffect(() => {
-        const scrollDiff = scrollTo - scrollFrom.current;
+    const animateScroll = () => {
+        currentTime += increment;
+        const newScrollPos = easeInOutCubic(currentTime, scrollFrom, scrollDiff, duration);
 
-        const animateScroll = () => {
-            currentTime.current += increment;
-            const newScrollPos = easeInOutCubic(currentTime.current, scrollFrom.current, scrollDiff, duration);
+        window.scrollTo(0, Math.floor(newScrollPos));
 
-            window.scrollTo(0, newScrollPos);
+        if (currentTime > duration) {
+            callback();
+            return;
+        }
 
-            if (currentTime.current > duration) {
-                callback();
-                return;
-            }
+        setTimeout(animateScroll, increment);
+    };
 
-            setTimeout(animateScroll, increment);
-        };
-
-        animateScroll();
-
-        return () => {
-            currentTime.current = 0;
-        };
-    }, [scrollTo, duration, callback]);
-
-    return null;
+    animateScroll();
 };
 
 export default animatedScrollTo;
