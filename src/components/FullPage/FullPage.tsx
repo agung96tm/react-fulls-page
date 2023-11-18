@@ -1,6 +1,6 @@
 import React, {useEffect, useRef, useState} from "react";
 import animatedScrollTo from "../../utils/animated-scroll-to";
-import Controls from "../Controls/Controls";
+// import Controls from "../Controls/Controls";
 import { IFullPageProps } from "./interface";
 import useIsMobile from "../../hooks/useIsMobile";
 
@@ -14,8 +14,8 @@ const FullPage: React.FC<IFullPageProps> = ({
     afterChange = () => {},
     beforeChange = () => {},
     children,
-    controls,
-    controlsProps = {},
+    // controls,
+    // controlsProps = {},
     duration = 700,
     initialSlide = 0,
     style,
@@ -144,22 +144,22 @@ const FullPage: React.FC<IFullPageProps> = ({
         }
     }
 
-    const controlsBasicProps = {
-        getCurrentSlideIndex: () => activeSlide,
-        onNext: () => {},
-        onPrev: () => {},
-        scrollToSlide,
-        slidesCount: React.Children.count(children) || 1,
-    };
+    // const controlsBasicProps = {
+    //     getCurrentSlideIndex: () => activeSlide,
+    //     onNext: () => {},
+    //     onPrev: () => {},
+    //     scrollToSlide,
+    //     slidesCount: React.Children.count(children) || 1,
+    // };
 
     return (
         <div style={{height: (height || 0), ...style}}>
-            {controls && (
-                <Controls
-                    {...controlsBasicProps}
-                    {...controlsProps}
-                />
-            )}
+            {/*{controls && (*/}
+            {/*    <Controls*/}
+            {/*        {...controlsBasicProps}*/}
+            {/*        {...controlsProps}*/}
+            {/*    />*/}
+            {/*)}*/}
             {children}
         </div>
     )
